@@ -18,3 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'api', 'as' => 'api.'], function () {
+    Route::get('/employees/all', ['as' => 'employees.all', 'uses' => 'Api\EmployeesController@index']);
+});

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Employee Info'),
 
     /*
     |--------------------------------------------------------------------------
@@ -167,6 +167,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Tightenco\Ziggy\ZiggyServiceProvider::class,
 
         /*
          * Application Service Providers...
