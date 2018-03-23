@@ -11,9 +11,10 @@ class EmployeesController extends Controller
 {
 
     /**
-     * Gets all employees for data table
+     * Gets all the users for table
      *
-     * @return array
+     * @param Request $request
+     * @return object
      */
     public function index(Request $request)
     {
@@ -28,7 +29,7 @@ class EmployeesController extends Controller
     /**
      * Gets table options for data table
      *
-     * @param object $request
+     * @param Request $request
      * @return array
      */
     private function getTableOptions($request)
