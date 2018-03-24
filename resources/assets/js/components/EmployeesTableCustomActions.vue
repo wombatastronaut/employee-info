@@ -1,8 +1,14 @@
 <template>
     <div class="custom-actions">
-        <button class="btn btn-sm" @click="itemAction('view-item', rowData, rowIndex)"><i class="glyphicon glyphicon-zoom-in"></i></button>
-        <button class="btn btn-sm" @click="itemAction('edit-item', rowData, rowIndex)"><i class="glyphicon glyphicon-pencil"></i></button>
-        <button class="btn btn-sm" @click="itemAction('delete-item', rowData, rowIndex)"><i class="glyphicon glyphicon-trash"></i></button>
+        <el-tooltip class="item" effect="dark" content="View" placement="bottom">
+            <el-button size="mini" icon="el-icon-zoom-in" @click="itemAction('view-item', rowData, rowIndex)"></el-button>
+        </el-tooltip>
+        <el-tooltip class="item" effect="dark" content="Edit" placement="bottom">
+            <el-button size="mini" icon="el-icon-edit" @click="itemAction('edit-item', rowData, rowIndex)"></el-button>
+        </el-tooltip>
+        <el-tooltip class="item" effect="dark" content="Delete" placement="bottom">
+            <el-button size="mini" icon="el-icon-delete" @click="itemAction('delete-item', rowData, rowIndex)"></el-button>
+        </el-tooltip>
     </div>
 </template>
 
@@ -19,7 +25,7 @@
         },
         methods: {
             itemAction (action, data, index) {
-            console.log('custom-actions: ' + action, data.name, index)
+                this.$events.fire(action, data, index)
             }
         }
     }

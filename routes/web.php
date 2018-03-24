@@ -10,15 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'api', 'as' => 'api.'], function () {
-    Route::get('/employees/all', ['as' => 'employees.all', 'uses' => 'Api\EmployeesController@index']);
+    Route::get('/employees/get-all-for-table', ['as' => 'employees.get-all-for-table', 'uses' => 'Api\EmployeesController@getAllForTable']);
+    Route::post('/employees/post', ['as' => 'employees.post', 'uses' => 'Api\EmployeesController@post']);
+    Route::get('/employees/delete/{id}', ['as' => 'employees.delete', 'uses' => 'Api\EmployeesController@delete']);
 });

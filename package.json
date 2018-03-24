@@ -11,6 +11,7 @@
     },
     "devDependencies": {
         "axios": "^0.17",
+        "babel-plugin-component": "^1.1.0",
         "babel-preset-stage-2": "^6.24.1",
         "bootstrap-sass": "^3.3.7",
         "cross-env": "^5.1",
@@ -22,7 +23,10 @@
     },
     "dependencies": {
         "accounting": "^0.4.1",
+        "element-ui": "^2.2.2",
         "moment": "^2.21.0",
-        "vue-events": "^3.1.0"
+        "vue-events": "^3.1.0",
+        "vue-signature-pad": "0.0.96",
+        "vue-spinner": "^1.0.3"
     }
 }

@@ -11,16 +11,18 @@ class EmployeesController extends Controller
 {
 
     /**
-     * Gets all the users for table
+     * Gets all the employees for table
      *
      * @param Request $request
      * @return object
      */
-    public function index(Request $request)
+    public function getAllForTable(Request $request)
     {
         $table_options = $this->getTableOptions($request);
 
-        $result = Employee::orderBy($table_options['sort_field'], $table_options['sort_dir'])
+        $result = Employee::where('name', 'LIKE', "%{$table_options['filter']}%")
+            ->orWhere('email', 'LIKE', "%{$table_options['filter']}%")
+            ->orderBy($table_options['sort_field'], $table_options['sort_dir'])
             ->paginate($table_options['per_page']);
 
         return $result;
@@ -45,6 +47,21 @@ class EmployeesController extends Controller
             'sort_field' => $sort_field,
             'sort_dir' => $sort_dir,
             'per_page' => $per_page
+        ];
+    }
+
+    /**
+     * Deletes employee
+     *
+     * @return array
+     */
+    public function delete($id)
+    {
+        $employee = Employee::findOrFail($id);
+        $result = $employee->delete();
+
+        return [
+            'success' => $result
         ];
     }
 }
