@@ -59,8 +59,13 @@
                     </el-select>
                 </el-form-item>
                 <el-form-item label="Image">
+                    <el-button type="info" size="small" @click="handleFileChange">Browse</el-button>
                 </el-form-item>
                 <el-form-item label="Signature" id="signature">
+                    <el-radio-group v-model="signatureType" size="small">
+                        <el-radio-button label="left">Draw</el-radio-button>
+                        <el-radio-button label="right">Type</el-radio-button>
+                    </el-radio-group>
                     <div class="signature-field-container">
                         <VueSignaturePad
                             width="300px"
@@ -73,7 +78,7 @@
             </el-form>
             <span slot="footer" class="dialog-footer">
                 <el-button @click="postFormDialog = false">Cancel</el-button>
-                <el-button type="primary" @click="post">Submit</el-button>
+                <el-button type="primary" @click="submit">Submit</el-button>
             </span>
         </el-dialog>
     </div>
@@ -193,6 +198,7 @@
                         value: 'o'
                     },
                 ],
+                signatureType: 'draw',
                 loading: false,
                 postFormDialog: false
             }
@@ -203,26 +209,26 @@
             }
         },
         methods: {
-            __allcap (value) {
+            __allcap(value) {
                 return value.toUpperCase()
             },
-            __formatDate (value, fmt = 'D MMM YYYY') {
+            __formatDate(value, fmt = 'D MMM YYYY') {
                 return (value == null) ? '' : moment(value, 'YYYY-MM-DD').format(fmt)
             },
-            onPaginationData (paginationData) {
+            onPaginationData(paginationData) {
                 this.$refs.pagination.setPaginationData(paginationData)
                 this.$refs.paginationInfo.setPaginationData(paginationData)
             },
-            onChangePage (page) {
+            onChangePage(page) {
                 this.$refs.vuetable.changePage(page);
             },
-            onLoading (response) {
+            onLoading(response) {
                 this.loading = true
             },
-            onLoaded (response) {
+            onLoaded(response) {
                 this.loading = false
             },
-            post () {
+            submit() {
 				post(route('api.employees.post'), { id: 'dsadsa' })
 				    .then(({data}) => {
 				        this.loading = false
@@ -230,6 +236,9 @@
 				    .catch((err) => {
 				        this.loading = false
 				    })
+            },
+            handleFileChange() {
+
             }
         },
         events: {

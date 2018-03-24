@@ -106769,6 +106769,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -106870,6 +106875,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('filter-bar', __WEBPACK_IM
                 label: 'O',
                 value: 'o'
             }],
+            signatureType: 'draw',
             loading: false,
             postFormDialog: false
         };
@@ -106902,7 +106908,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('filter-bar', __WEBPACK_IM
         onLoaded: function onLoaded(response) {
             this.loading = false;
         },
-        post: function post() {
+        submit: function submit() {
             var _this = this;
 
             Object(__WEBPACK_IMPORTED_MODULE_9__helpers_http__["b" /* post */])(route('api.employees.post'), { id: 'dsadsa' }).then(function (_ref) {
@@ -106912,7 +106918,8 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('filter-bar', __WEBPACK_IM
             }).catch(function (err) {
                 _this.loading = false;
             });
-        }
+        },
+        handleFileChange: function handleFileChange() {}
     },
     events: {
         'filter-set': function filterSet(filterText) {
@@ -111384,12 +111391,50 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _c("el-form-item", { attrs: { label: "Image" } }),
+              _c(
+                "el-form-item",
+                { attrs: { label: "Image" } },
+                [
+                  _c(
+                    "el-button",
+                    {
+                      attrs: { type: "info", size: "small" },
+                      on: { click: _vm.handleFileChange }
+                    },
+                    [_vm._v("Browse")]
+                  )
+                ],
+                1
+              ),
               _vm._v(" "),
               _c(
                 "el-form-item",
                 { attrs: { label: "Signature", id: "signature" } },
                 [
+                  _c(
+                    "el-radio-group",
+                    {
+                      attrs: { size: "small" },
+                      model: {
+                        value: _vm.signatureType,
+                        callback: function($$v) {
+                          _vm.signatureType = $$v
+                        },
+                        expression: "signatureType"
+                      }
+                    },
+                    [
+                      _c("el-radio-button", { attrs: { label: "left" } }, [
+                        _vm._v("Draw")
+                      ]),
+                      _vm._v(" "),
+                      _c("el-radio-button", { attrs: { label: "right" } }, [
+                        _vm._v("Type")
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
                   _c(
                     "div",
                     { staticClass: "signature-field-container" },
@@ -111405,7 +111450,8 @@ var render = function() {
                     ],
                     1
                   )
-                ]
+                ],
+                1
               )
             ],
             1
@@ -111433,7 +111479,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "el-button",
-                { attrs: { type: "primary" }, on: { click: _vm.post } },
+                { attrs: { type: "primary" }, on: { click: _vm.submit } },
                 [_vm._v("Submit")]
               )
             ],
