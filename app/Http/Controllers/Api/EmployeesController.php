@@ -33,7 +33,7 @@ class EmployeesController extends Controller
         }
 
         if ($request->has('id')) {
-            $slider = Employee::find($request->input('id'));
+            $employee = Employee::find($request->input('id'));
         } else {
             $employee = new Employee;
         }
@@ -69,7 +69,7 @@ class EmployeesController extends Controller
     }
 
     /**
-     * Gets options for data table
+     * Get options for data table
      *
      * @param Request $request
      * @return array
@@ -93,6 +93,7 @@ class EmployeesController extends Controller
     /**
      * Delete an employee
      *
+     * @param string $id
      * @return Response
      */
     public function delete($id)
