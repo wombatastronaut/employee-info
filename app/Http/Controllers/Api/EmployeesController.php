@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 
 use App\Employee;
@@ -45,6 +46,8 @@ class EmployeesController extends Controller
         $employee->signature = $request->input('signature');
 
         if ($request->hasFile('image')) {
+            $path = $this->storeFile($request->file('image'), config('constants.employees_image_path'));
+            $employee->image = $path;
         }
 
         $result = $employee->save();
@@ -52,6 +55,17 @@ class EmployeesController extends Controller
         return [
             'success' => $result
         ];
+    }
+
+    /**
+     * Store file
+     * 
+     * @param object $image
+     * @return string
+     */
+    private function storeFile($file, $path) {
+        $path = $file->store($path);
+        return $path;
     }
 
     /**
