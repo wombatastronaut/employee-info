@@ -37,9 +37,19 @@
             <el-form label-position="top" :model="employee">
                 <el-form-item label="Name">
                     <el-input v-model="employee.name"></el-input>
+                    <div v-if="errors.name && errors.name.length">
+                        <span class="help-block" v-for="(error, index) in errors.name" :key="index">
+                            {{ error }}
+                        </span>
+                    </div>
                 </el-form-item>
                 <el-form-item label="Email">
                     <el-input v-model="employee.email"></el-input>
+                    <div v-if="errors.email && errors.email.length">
+                        <span class="help-block" v-for="(error, index) in errors.email" :key="index">
+                            {{ error }}
+                        </span>
+                    </div>
                 </el-form-item>
                 <el-form-item label="Birthday">
                     <el-date-picker
@@ -47,6 +57,11 @@
                         placeholder=""
                         v-model="employee.birthdate">
                     </el-date-picker>
+                    <div v-if="errors.birthdate && errors.birthdate.length">
+                        <span class="help-block" v-for="(error, index) in errors.birthdate" :key="index">
+                            {{ error }}
+                        </span>
+                    </div>
                 </el-form-item>
                 <el-form-item label="Blood Type">
                     <el-select placeholder="Select" v-model="employee.blood_type">
@@ -57,15 +72,21 @@
                             :value="item.value">
                         </el-option>
                     </el-select>
+                    <div v-if="errors.blod_type && errors.blod_type.length">
+                        <span class="help-block" v-for="(error, index) in errors.blod_type" :key="index">
+                            {{ error }}
+                        </span>
+                    </div>
                 </el-form-item>
                 <el-form-item label="Image">
-                    <el-button type="info" size="small" @click="handleFileChange">Browse</el-button>
+                    <el-button type="info" size="small" @click="onFileChange">Browse</el-button>
+                    <div v-if="errors.image && errors.image.length">
+                        <span class="help-block" v-for="(error, index) in errors.image" :key="index">
+                            {{ error }}
+                        </span>
+                    </div>
                 </el-form-item>
                 <el-form-item label="Signature" id="signature">
-                    <el-radio-group v-model="signatureType" size="small">
-                        <el-radio-button label="left">Draw</el-radio-button>
-                        <el-radio-button label="right">Type</el-radio-button>
-                    </el-radio-group>
                     <div class="signature-field-container">
                         <VueSignaturePad
                             width="300px"
@@ -73,6 +94,11 @@
                             :options="{ minWidth: 1, maxWidth: 1.5 }"
                             ref="signaturePad"
                         />
+                    </div>
+                    <div v-if="errors.signature && errors.signature.length">
+                        <span class="help-block" v-for="(error, index) in errors.signature" :key="index">
+                            {{ error }}
+                        </span>
                     </div>
                 </el-form-item>
             </el-form>
@@ -85,22 +111,21 @@
 </template>
 
 <script>
-    import Vue from 'vue';
-    import moment from 'moment';
-    import Vuetable from 'vuetable-2/src/components/Vuetable';
-    import VuetablePagination from 'vuetable-2/src/components/VuetablePagination';
-    import VuetablePaginationInfo from 'vuetable-2/src/components/VuetablePaginationInfo';
-    import VueEvents from 'vue-events';
-    import VueSignaturePad from 'vue-signature-pad';
-    import CustomActions from './EmployeesTableCustomActions';
-    import FilterBar from './EmployeesTableFilterBar';
-    import { get, post } from '../helpers/http';
+    import Vue from 'vue'
+    import moment from 'moment'
+    import Vuetable from 'vuetable-2/src/components/Vuetable'
+    import VuetablePagination from 'vuetable-2/src/components/VuetablePagination'
+    import VuetablePaginationInfo from 'vuetable-2/src/components/VuetablePaginationInfo'
+    import VueEvents from 'vue-events'
+    import VueSignaturePad from 'vue-signature-pad'
+    import CustomActions from './EmployeesTableCustomActions'
+    import FilterBar from './EmployeesTableFilterBar'
 
     Vue.use(VueEvents);
-    Vue.use(VueSignaturePad);
+    Vue.use(VueSignaturePad)
 
-    Vue.component('custom-actions', CustomActions);
-    Vue.component('filter-bar', FilterBar);
+    Vue.component('custom-actions', CustomActions)
+    Vue.component('filter-bar', FilterBar)
 
     export default {
         components: {
@@ -180,6 +205,7 @@
                     image: null,
                     signature: null
                 },
+                errors: [],
                 bloodTypes: [
                     {
                         label: 'A',
@@ -228,17 +254,41 @@
             onLoaded(response) {
                 this.loading = false
             },
-            submit() {
-				post(route('api.employees.post'), { id: 'dsadsa' })
-				    .then(({data}) => {
-				        this.loading = false
-				    })
-				    .catch((err) => {
-				        this.loading = false
-				    })
-            },
-            handleFileChange() {
+            onFileChange() {
 
+            },
+            submit() {
+                axios.post(route('api.employees.post'), this.employee)
+                    .then(({data}) => {
+                        this.loading = false
+                        
+                        if (!data.success) {
+                            this.errors = data.errors
+                            return false
+                        }
+                        
+                        this.resetFields();
+                        this.$nextTick(() => this.$refs.vuetable.refresh());
+                        this.postFormDialog = false;
+
+                        this.$notify({
+                            title: 'Success',
+                            message: 'You have successfully added the employee.',
+                            type: 'success'
+                        });
+                    })
+                    .catch((error) => {
+                        this.loading = false
+                    })
+            },
+            resetFields() {
+                this.employee.id = null;
+                this.employee.name = null;
+                this.employee.employee = null;
+                this.employee.birthdate = null;
+                this.employee.blood_type = null;
+                this.employee.image = null;
+                this.employee.signature = null;
             }
         },
         events: {
@@ -246,11 +296,20 @@
                 this.moreParams = {
                     filter: filterText
                 }
-                this.$nextTick(() => this.$refs.vuetable.refresh());
+                this.$nextTick(() => this.$refs.vuetable.refresh())
             },
             'filter-reset' () {
                 this.moreParams = {}
-                this.$nextTick(() => this.$refs.vuetable.refresh());
+                this.$nextTick(() => this.$refs.vuetable.refresh())
+            },
+            'edit-item' (data, index) {
+                this.postFormDialog = true
+
+                this.employee.id = data.id
+                this.employee.name = data.name
+                this.employee.email = data.email
+                this.employee.birthdate = data.birthdate
+                this.employee.blood_type = data.blood_type
             },
             'delete-item' (data, index) {
                 let vm = this;
@@ -262,17 +321,13 @@
                 }).then(() => {
                     this.loading = true;
 
-                    get(route('api.employees.delete', data.id))
+                    axios.get(route('api.employees.delete', data.id))
                         .then(({data}) => {
                             this.loading = false;
                             Vue.nextTick(() => vm.$refs.vuetable.refresh());
 
                             if(!data.success){
-                                this.$notify({
-                                    title: 'Warning',
-                                    message: 'Failed to delete the employee. Please try again.',
-                                    type: 'warning'
-                                });
+                               this.errors = data.errors;
                                 return false;
                             }
 
@@ -300,7 +355,11 @@
     }
 
     .el-form-item {
-        margin-bottom: 15px;
+        margin-bottom: 10px;
+
+        .el-form-item__content {
+            line-height: normal;
+        }
 
         .el-form-item__label {
             margin-bottom: 0;

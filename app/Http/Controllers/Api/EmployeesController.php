@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -9,12 +10,51 @@ use App\Employee;
 
 class EmployeesController extends Controller
 {
+    /**
+     * Add/Edit an employee
+     * 
+     * @param Request $request
+     * @return Response
+     */
+    public function post(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|unique:employees',
+            'birthdate' => 'required',
+            'blood_type' => 'required',
+        ]);
+        
+        if($validator->fails()){
+            return [
+                'success' => false,
+                'errors' => $validator->errors()
+            ];
+        }
+
+        if ($request->has('id')) {
+            $slider = Employee::find($request->input('id'));
+        } else {
+            $employee = new Employee;
+        }
+
+        $employee->name = $request->input('name');
+        $employee->email = $request->input('email');
+        $employee->birthdate = $request->input('birthdate');
+        $employee->blood_type = $request->input('blood_type');
+
+        $result = $employee->save();
+
+        return [
+            'success' => $result
+        ];
+    }
 
     /**
-     * Gets all the employees for table
+     * Get all the employees for table
      *
      * @param Request $request
-     * @return object
+     * @return Response
      */
     public function getAllForTable(Request $request)
     {
@@ -29,7 +69,7 @@ class EmployeesController extends Controller
     }
 
     /**
-     * Gets table options for data table
+     * Gets options for data table
      *
      * @param Request $request
      * @return array
@@ -51,9 +91,9 @@ class EmployeesController extends Controller
     }
 
     /**
-     * Deletes employee
+     * Delete an employee
      *
-     * @return array
+     * @return Response
      */
     public function delete($id)
     {

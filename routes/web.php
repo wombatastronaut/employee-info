@@ -14,6 +14,8 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('htmltopdfview', array('as'=>'htmltopdfview','uses'=>'HomeController@htmltopdfview'));
+
 Route::group(['prefix' => 'api', 'as' => 'api.'], function () {
     Route::get('/employees/get-all-for-table', ['as' => 'employees.get-all-for-table', 'uses' => 'Api\EmployeesController@getAllForTable']);
     Route::post('/employees/post', ['as' => 'employees.post', 'uses' => 'Api\EmployeesController@post']);

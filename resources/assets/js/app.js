@@ -6,11 +6,9 @@ import ElementUI from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/en'
 import 'element-ui/lib/theme-chalk/index.css'
 
-// Import package components
-import Loader from './components/Loader.vue'
-
 // Import custom components
 import EmployeesTable from './components/EmployeesTable.vue'
+import Loader from './components/Loader.vue'
 
 // Use packages
 Vue.use(ElementUI, { locale })

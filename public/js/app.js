@@ -33188,7 +33188,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(208);
-module.exports = __webpack_require__(384);
+module.exports = __webpack_require__(388);
 
 
 /***/ }),
@@ -33203,10 +33203,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_locale_lang_en___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_element_ui_lib_locale_lang_en__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_theme_chalk_index_css__ = __webpack_require__(316);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_theme_chalk_index_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_element_ui_lib_theme_chalk_index_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Loader_vue__ = __webpack_require__(323);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Loader_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_Loader_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_EmployeesTable_vue__ = __webpack_require__(334);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_EmployeesTable_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_EmployeesTable_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_EmployeesTable_vue__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_EmployeesTable_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_EmployeesTable_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Loader_vue__ = __webpack_require__(323);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Loader_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_Loader_vue__);
 __webpack_require__(209);
 window.Vue = __webpack_require__(4);
 
@@ -33215,18 +33215,16 @@ window.Vue = __webpack_require__(4);
 
 
 
-// Import package components
-
-
 // Import custom components
+
 
 
 // Use packages
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_element_ui___default.a, { locale: __WEBPACK_IMPORTED_MODULE_1_element_ui_lib_locale_lang_en___default.a });
 
 // Register components
-Vue.component('employees-table', __WEBPACK_IMPORTED_MODULE_4__components_EmployeesTable_vue___default.a);
-Vue.component('loader', __WEBPACK_IMPORTED_MODULE_3__components_Loader_vue___default.a);
+Vue.component('employees-table', __WEBPACK_IMPORTED_MODULE_3__components_EmployeesTable_vue___default.a);
+Vue.component('loader', __WEBPACK_IMPORTED_MODULE_4__components_Loader_vue___default.a);
 
 var app = new Vue({
     el: '#app'
@@ -106586,7 +106584,7 @@ var normalizeComponent = __webpack_require__(6)
 /* script */
 var __vue_script__ = __webpack_require__(337)
 /* template */
-var __vue_template__ = __webpack_require__(383)
+var __vue_template__ = __webpack_require__(387)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -106659,7 +106657,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\n.signature-field-container div {\n  border: 1px solid #dcdfe6;\n}\n.el-dialog__body {\n  padding-top: 15px;\n  padding-bottom: 15px;\n}\n.el-form-item {\n  margin-bottom: 15px;\n}\n.el-form-item .el-form-item__label {\n    margin-bottom: 0;\n}\n.el-form--label-top .el-form-item__label {\n  padding-bottom: 0;\n}\n.vuetable-pagination .pagination-info {\n  float: left;\n}\n.vuetable-pagination .vuetable-pagination-info {\n  display: inline-block;\n}\n", ""]);
+exports.push([module.i, "\n.signature-field-container div {\n  border: 1px solid #dcdfe6;\n}\n.el-dialog__body {\n  padding-top: 15px;\n  padding-bottom: 15px;\n}\n.el-form-item {\n  margin-bottom: 10px;\n}\n.el-form-item .el-form-item__content {\n    line-height: normal;\n}\n.el-form-item .el-form-item__label {\n    margin-bottom: 0;\n}\n.el-form--label-top .el-form-item__label {\n  padding-bottom: 0;\n}\n.vuetable-pagination .pagination-info {\n  float: left;\n}\n.vuetable-pagination .vuetable-pagination-info {\n  display: inline-block;\n}\n", ""]);
 
 // exports
 
@@ -106682,12 +106680,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vuetable_2_src_components_VuetablePaginationInfo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vuetable_2_src_components_VuetablePaginationInfo__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_events__ = __webpack_require__(372);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_events___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_vue_events__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_vue_signature_pad__ = __webpack_require__(392);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__EmployeesTableCustomActions__ = __webpack_require__(373);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_vue_signature_pad__ = __webpack_require__(373);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__EmployeesTableCustomActions__ = __webpack_require__(376);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__EmployeesTableCustomActions___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__EmployeesTableCustomActions__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__EmployeesTableFilterBar__ = __webpack_require__(378);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__EmployeesTableFilterBar__ = __webpack_require__(381);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__EmployeesTableFilterBar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__EmployeesTableFilterBar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__helpers_http__ = __webpack_require__(391);
 //
 //
 //
@@ -106774,7 +106771,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -106862,6 +106884,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('filter-bar', __WEBPACK_IM
                 image: null,
                 signature: null
             },
+            errors: [],
             bloodTypes: [{
                 label: 'A',
                 value: 'a'
@@ -106908,18 +106931,44 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('filter-bar', __WEBPACK_IM
         onLoaded: function onLoaded(response) {
             this.loading = false;
         },
+        onFileChange: function onFileChange() {},
         submit: function submit() {
             var _this = this;
 
-            Object(__WEBPACK_IMPORTED_MODULE_9__helpers_http__["b" /* post */])(route('api.employees.post'), { id: 'dsadsa' }).then(function (_ref) {
+            axios.post(route('api.employees.post'), this.employee).then(function (_ref) {
                 var data = _ref.data;
 
                 _this.loading = false;
-            }).catch(function (err) {
+
+                if (!data.success) {
+                    _this.errors = data.errors;
+                    return false;
+                }
+
+                _this.resetFields();
+                _this.$nextTick(function () {
+                    return _this.$refs.vuetable.refresh();
+                });
+                _this.postFormDialog = false;
+
+                _this.$notify({
+                    title: 'Success',
+                    message: 'You have successfully added the employee.',
+                    type: 'success'
+                });
+            }).catch(function (error) {
                 _this.loading = false;
             });
         },
-        handleFileChange: function handleFileChange() {}
+        resetFields: function resetFields() {
+            this.employee.id = null;
+            this.employee.name = null;
+            this.employee.employee = null;
+            this.employee.birthdate = null;
+            this.employee.blood_type = null;
+            this.employee.image = null;
+            this.employee.signature = null;
+        }
     },
     events: {
         'filter-set': function filterSet(filterText) {
@@ -106940,6 +106989,15 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('filter-bar', __WEBPACK_IM
                 return _this3.$refs.vuetable.refresh();
             });
         },
+        'edit-item': function editItem(data, index) {
+            this.postFormDialog = true;
+
+            this.employee.id = data.id;
+            this.employee.name = data.name;
+            this.employee.email = data.email;
+            this.employee.birthdate = data.birthdate;
+            this.employee.blood_type = data.blood_type;
+        },
         'delete-item': function deleteItem(data, index) {
             var _this4 = this;
 
@@ -106952,7 +107010,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('filter-bar', __WEBPACK_IM
             }).then(function () {
                 _this4.loading = true;
 
-                Object(__WEBPACK_IMPORTED_MODULE_9__helpers_http__["a" /* get */])(route('api.employees.delete', data.id)).then(function (_ref2) {
+                axios.get(route('api.employees.delete', data.id)).then(function (_ref2) {
                     var data = _ref2.data;
 
                     _this4.loading = false;
@@ -106961,11 +107019,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('filter-bar', __WEBPACK_IM
                     });
 
                     if (!data.success) {
-                        _this4.$notify({
-                            title: 'Warning',
-                            message: 'Failed to delete the employee. Please try again.',
-                            type: 'warning'
-                        });
+                        _this4.errors = data.errors;
                         return false;
                     }
 
@@ -110828,736 +110882,16 @@ exports.default = plugin;
 
 /***/ }),
 /* 373 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(374)
-}
-var normalizeComponent = __webpack_require__(6)
-/* script */
-var __vue_script__ = __webpack_require__(376)
-/* template */
-var __vue_template__ = __webpack_require__(377)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\EmployeesTableCustomActions.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-0be52e5c", Component.options)
-  } else {
-    hotAPI.reload("data-v-0be52e5c", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 374 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(375);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(18)("1663c347", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0be52e5c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EmployeesTableCustomActions.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0be52e5c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EmployeesTableCustomActions.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 375 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(11)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.custom-actions button.ui.button {\n  padding: 8px 8px;\n}\n.custom-actions button.ui.button > i.icon {\n  margin: auto !important;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 376 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    props: {
-        rowData: {
-            type: Object,
-            required: true
-        },
-        rowIndex: {
-            type: Number
-        }
-    },
-    methods: {
-        itemAction: function itemAction(action, data, index) {
-            this.$events.fire(action, data, index);
-        }
-    }
-});
-
-/***/ }),
-/* 377 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "custom-actions" },
-    [
-      _c(
-        "el-tooltip",
-        {
-          staticClass: "item",
-          attrs: { effect: "dark", content: "View", placement: "bottom" }
-        },
-        [
-          _c("el-button", {
-            attrs: { size: "mini", icon: "el-icon-zoom-in" },
-            on: {
-              click: function($event) {
-                _vm.itemAction("view-item", _vm.rowData, _vm.rowIndex)
-              }
-            }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "el-tooltip",
-        {
-          staticClass: "item",
-          attrs: { effect: "dark", content: "Edit", placement: "bottom" }
-        },
-        [
-          _c("el-button", {
-            attrs: { size: "mini", icon: "el-icon-edit" },
-            on: {
-              click: function($event) {
-                _vm.itemAction("edit-item", _vm.rowData, _vm.rowIndex)
-              }
-            }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "el-tooltip",
-        {
-          staticClass: "item",
-          attrs: { effect: "dark", content: "Delete", placement: "bottom" }
-        },
-        [
-          _c("el-button", {
-            attrs: { size: "mini", icon: "el-icon-delete" },
-            on: {
-              click: function($event) {
-                _vm.itemAction("delete-item", _vm.rowData, _vm.rowIndex)
-              }
-            }
-          })
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-0be52e5c", module.exports)
-  }
-}
-
-/***/ }),
-/* 378 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(379)
-}
-var normalizeComponent = __webpack_require__(6)
-/* script */
-var __vue_script__ = __webpack_require__(381)
-/* template */
-var __vue_template__ = __webpack_require__(382)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\EmployeesTableFilterBar.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-53be9c0b", Component.options)
-  } else {
-    hotAPI.reload("data-v-53be9c0b", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 379 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(380);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(18)("0922a854", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-53be9c0b\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EmployeesTableFilterBar.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-53be9c0b\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EmployeesTableFilterBar.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 380 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(11)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.filter-bar {\n    padding: 10px;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 381 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            filterText: ''
-        };
-    },
-
-    methods: {
-        doFilter: function doFilter() {
-            var _this = this;
-
-            setTimeout(function () {
-                _this.$events.fire('filter-set', _this.filterText);
-            }, 1000);
-        },
-        resetFilter: function resetFilter() {
-            this.filterText = '';
-            this.$events.fire('filter-reset');
-        }
-    }
-});
-
-/***/ }),
-/* 382 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "filter-bar" }, [
-    _c("form", { staticClass: "form-inline" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", [_vm._v("Search:")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.filterText,
-              expression: "filterText"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: { type: "text", placeholder: "Name or Email" },
-          domProps: { value: _vm.filterText },
-          on: {
-            keyup: _vm.doFilter,
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.filterText = $event.target.value
-            }
-          }
-        })
-      ])
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-53be9c0b", module.exports)
-  }
-}
-
-/***/ }),
-/* 383 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { attrs: { id: "employees-table" } },
-    [
-      _c("loader", { attrs: { loading: _vm.loading } }),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-6" }, [_c("filter-bar")], 1),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "col-md-6" },
-          [
-            _c(
-              "el-button",
-              {
-                staticClass: "pull-right",
-                staticStyle: { "margin-top": "8px" },
-                attrs: { type: "primary" },
-                on: {
-                  click: function($event) {
-                    _vm.postFormDialog = true
-                  }
-                }
-              },
-              [_vm._v("Add Employee")]
-            )
-          ],
-          1
-        )
-      ]),
-      _vm._v(" "),
-      _c("vuetable", {
-        ref: "vuetable",
-        attrs: {
-          "api-url": _vm.apiUrl,
-          fields: _vm.fields,
-          "pagination-path": "",
-          css: _vm.css.table,
-          "sort-order": _vm.sortOrder,
-          "multi-sort": true,
-          "append-params": _vm.moreParams
-        },
-        on: {
-          "vuetable:loading": _vm.onLoading,
-          "vuetable:loaded": _vm.onLoaded,
-          "vuetable:pagination-data": _vm.onPaginationData
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "vuetable-pagination" },
-        [
-          _c("vuetable-pagination-info", {
-            ref: "paginationInfo",
-            attrs: { "info-class": "pagination-info" }
-          }),
-          _vm._v(" "),
-          _c("vuetable-pagination", {
-            ref: "pagination",
-            attrs: { css: _vm.css.pagination },
-            on: { "vuetable-pagination:change-page": _vm.onChangePage }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "el-dialog",
-        {
-          attrs: {
-            title: "New Employee",
-            visible: _vm.postFormDialog,
-            width: "40%"
-          },
-          on: {
-            "update:visible": function($event) {
-              _vm.postFormDialog = $event
-            }
-          }
-        },
-        [
-          _c(
-            "el-form",
-            { attrs: { "label-position": "top", model: _vm.employee } },
-            [
-              _c(
-                "el-form-item",
-                { attrs: { label: "Name" } },
-                [
-                  _c("el-input", {
-                    model: {
-                      value: _vm.employee.name,
-                      callback: function($$v) {
-                        _vm.$set(_vm.employee, "name", $$v)
-                      },
-                      expression: "employee.name"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "el-form-item",
-                { attrs: { label: "Email" } },
-                [
-                  _c("el-input", {
-                    model: {
-                      value: _vm.employee.email,
-                      callback: function($$v) {
-                        _vm.$set(_vm.employee, "email", $$v)
-                      },
-                      expression: "employee.email"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "el-form-item",
-                { attrs: { label: "Birthday" } },
-                [
-                  _c("el-date-picker", {
-                    attrs: { type: "date", placeholder: "" },
-                    model: {
-                      value: _vm.employee.birthdate,
-                      callback: function($$v) {
-                        _vm.$set(_vm.employee, "birthdate", $$v)
-                      },
-                      expression: "employee.birthdate"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "el-form-item",
-                { attrs: { label: "Blood Type" } },
-                [
-                  _c(
-                    "el-select",
-                    {
-                      attrs: { placeholder: "Select" },
-                      model: {
-                        value: _vm.employee.blood_type,
-                        callback: function($$v) {
-                          _vm.$set(_vm.employee, "blood_type", $$v)
-                        },
-                        expression: "employee.blood_type"
-                      }
-                    },
-                    _vm._l(_vm.bloodTypes, function(item) {
-                      return _c("el-option", {
-                        key: item.value,
-                        attrs: { label: item.label, value: item.value }
-                      })
-                    })
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "el-form-item",
-                { attrs: { label: "Image" } },
-                [
-                  _c(
-                    "el-button",
-                    {
-                      attrs: { type: "info", size: "small" },
-                      on: { click: _vm.handleFileChange }
-                    },
-                    [_vm._v("Browse")]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "el-form-item",
-                { attrs: { label: "Signature", id: "signature" } },
-                [
-                  _c(
-                    "el-radio-group",
-                    {
-                      attrs: { size: "small" },
-                      model: {
-                        value: _vm.signatureType,
-                        callback: function($$v) {
-                          _vm.signatureType = $$v
-                        },
-                        expression: "signatureType"
-                      }
-                    },
-                    [
-                      _c("el-radio-button", { attrs: { label: "left" } }, [
-                        _vm._v("Draw")
-                      ]),
-                      _vm._v(" "),
-                      _c("el-radio-button", { attrs: { label: "right" } }, [
-                        _vm._v("Type")
-                      ])
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "signature-field-container" },
-                    [
-                      _c("VueSignaturePad", {
-                        ref: "signaturePad",
-                        attrs: {
-                          width: "300px",
-                          height: "100px",
-                          options: { minWidth: 1, maxWidth: 1.5 }
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "span",
-            {
-              staticClass: "dialog-footer",
-              attrs: { slot: "footer" },
-              slot: "footer"
-            },
-            [
-              _c(
-                "el-button",
-                {
-                  on: {
-                    click: function($event) {
-                      _vm.postFormDialog = false
-                    }
-                  }
-                },
-                [_vm._v("Cancel")]
-              ),
-              _vm._v(" "),
-              _c(
-                "el-button",
-                { attrs: { type: "primary" }, on: { click: _vm.submit } },
-                [_vm._v("Submit")]
-              )
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-14ac0400", module.exports)
-  }
-}
-
-/***/ }),
-/* 384 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 385 */,
-/* 386 */,
-/* 387 */,
-/* 388 */,
-/* 389 */,
-/* 390 */,
-/* 391 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = get;
-/* harmony export (immutable) */ __webpack_exports__["b"] = post;
-/* unused harmony export interceptors */
-function get(url) {
-    return axios({
-        method: 'GET',
-        url: url
-    });
-}
-
-function post(url, payload) {
-    return axios({
-        method: 'POST',
-        url: url,
-        data: payload
-    });
-}
-
-function interceptors(cb) {
-    axios.interceptors.response.use(function (res) {
-        return res;
-    }, function (err) {
-        cb(err);
-        return Promise.reject(err);
-    });
-}
-
-/***/ }),
-/* 392 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_signature_pad__ = __webpack_require__(393);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_merge_images__ = __webpack_require__(394);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_signature_pad__ = __webpack_require__(374);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_merge_images__ = __webpack_require__(375);
 var SAVE_TYPE=["image/png","image/jpeg","image/svg+xml"],checkSaveType=function(e){return SAVE_TYPE.includes(e)},DEFAULT_OPTIONS={minWidth:.5,maxWidth:2.5,throttle:16,minDistance:5,backgroundColor:"rgba(0,0,0,0)",penColor:"black",velocityFilterWeight:.7},convert2NonReactive=function(e){return JSON.parse(JSON.stringify(e))},TRANSPARENT_PNG={src:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=",x:0,y:0},VueSignaturePad={name:"VueSignaturePad",props:{width:{type:String,default:"100%"},height:{type:String,default:"100%"},customStyle:{type:Object},saveType:{type:String,default:"image/png"},options:{type:Object,default:function(){return{}}},images:{type:Array,default:function(){return[]}}},data:function(){return{signaturePad:{},cacheImages:[],signatureData:TRANSPARENT_PNG}},mounted:function(){var e=this.options,t=this.$refs.signaturePadCanvas,a=new __WEBPACK_IMPORTED_MODULE_0_signature_pad__["a" /* default */](t,Object.assign({},DEFAULT_OPTIONS,e));this.signaturePad=a,window.addEventListener("resize",this.resizeCanvas.bind(this,t),!1),this.resizeCanvas(t)},methods:{resizeCanvas:function(e){var t=Math.max(window.devicePixelRatio||1,1);e.width=e.offsetWidth*t,e.height=e.offsetHeight*t,e.getContext("2d").scale(t,t),this.signaturePad.clear(),this.signatureData=TRANSPARENT_PNG},saveSignature:function(){var e=this.signaturePad,t=this.saveType,a={isEmpty:!1,data:void 0};if(!checkSaveType(t))throw new Error("Image type is incorrect!");return e.isEmpty()?Object.assign({},a,{isEmpty:!0}):(this.signatureData=e.toDataURL(t),Object.assign({},a,{data:this.signatureData}))},undoSignature:function(){var e=this.signaturePad,t=e.toData();if(t)return e.fromData(t.slice(0,-1))},mergeImageAndSignature:function(e){return this.signatureData=e,Object(__WEBPACK_IMPORTED_MODULE_1_merge_images__["a" /* default */])(this.images.concat(this.cacheImages,[this.signatureData]))},addImages:function(e){return void 0===e&&(e=[]),this.cacheImages=this.cacheImages.concat(e),Object(__WEBPACK_IMPORTED_MODULE_1_merge_images__["a" /* default */])(this.images.concat(this.cacheImages,[this.signatureData]))},lockSignaturePad:function(){return this.signaturePad.off()},openSignaturePad:function(){return this.signaturePad.on()},getPropImagesAndCacheImages:function(){return this.propsImagesAndCustomImages},clearCacheImages:function(){this.cacheImages=[]}},computed:{propsImagesAndCustomImages:function(){var e=convert2NonReactive(this.images),t=convert2NonReactive(this.cacheImages);return e.concat(t)}},render:function(e){var t=this.width,a=this.height,i=this.customStyle;return e("div",{style:Object.assign({},{width:t,height:a},i)},[e("canvas",{style:{width:"100%",height:"100%"},ref:"signaturePadCanvas"})])},install:function(e){return e.component(VueSignaturePad.name,VueSignaturePad)}};"undefined"!=typeof window&&window.Vue&&window.Vue.use(VueSignaturePad);/* harmony default export */ __webpack_exports__["a"] = (VueSignaturePad);
 
 
 /***/ }),
-/* 393 */
+/* 374 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -112166,7 +111500,7 @@ SignaturePad.prototype.toData = function () {
 
 
 /***/ }),
-/* 394 */
+/* 375 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -112249,6 +111583,778 @@ var mergeImages = function (sources, options) {
 /* harmony default export */ __webpack_exports__["a"] = (mergeImages);
 //# sourceMappingURL=index.es2015.js.map
 
+
+/***/ }),
+/* 376 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(377)
+}
+var normalizeComponent = __webpack_require__(6)
+/* script */
+var __vue_script__ = __webpack_require__(379)
+/* template */
+var __vue_template__ = __webpack_require__(380)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\EmployeesTableCustomActions.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0be52e5c", Component.options)
+  } else {
+    hotAPI.reload("data-v-0be52e5c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 377 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(378);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(18)("1663c347", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0be52e5c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EmployeesTableCustomActions.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0be52e5c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EmployeesTableCustomActions.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 378 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(11)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.custom-actions button.ui.button {\n  padding: 8px 8px;\n}\n.custom-actions button.ui.button > i.icon {\n  margin: auto !important;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 379 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: {
+        rowData: {
+            type: Object,
+            required: true
+        },
+        rowIndex: {
+            type: Number
+        }
+    },
+    methods: {
+        itemAction: function itemAction(action, data, index) {
+            this.$events.fire(action, data, index);
+        }
+    }
+});
+
+/***/ }),
+/* 380 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "custom-actions" },
+    [
+      _c(
+        "el-tooltip",
+        {
+          staticClass: "item",
+          attrs: { effect: "dark", content: "View", placement: "bottom" }
+        },
+        [
+          _c("el-button", {
+            attrs: { size: "mini", icon: "el-icon-zoom-in" },
+            on: {
+              click: function($event) {
+                _vm.itemAction("view-item", _vm.rowData, _vm.rowIndex)
+              }
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "el-tooltip",
+        {
+          staticClass: "item",
+          attrs: { effect: "dark", content: "Edit", placement: "bottom" }
+        },
+        [
+          _c("el-button", {
+            attrs: { size: "mini", icon: "el-icon-edit" },
+            on: {
+              click: function($event) {
+                _vm.itemAction("edit-item", _vm.rowData, _vm.rowIndex)
+              }
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "el-tooltip",
+        {
+          staticClass: "item",
+          attrs: { effect: "dark", content: "Delete", placement: "bottom" }
+        },
+        [
+          _c("el-button", {
+            attrs: { size: "mini", icon: "el-icon-delete" },
+            on: {
+              click: function($event) {
+                _vm.itemAction("delete-item", _vm.rowData, _vm.rowIndex)
+              }
+            }
+          })
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0be52e5c", module.exports)
+  }
+}
+
+/***/ }),
+/* 381 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(382)
+}
+var normalizeComponent = __webpack_require__(6)
+/* script */
+var __vue_script__ = __webpack_require__(384)
+/* template */
+var __vue_template__ = __webpack_require__(385)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\EmployeesTableFilterBar.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-53be9c0b", Component.options)
+  } else {
+    hotAPI.reload("data-v-53be9c0b", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 382 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(383);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(18)("0922a854", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-53be9c0b\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EmployeesTableFilterBar.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-53be9c0b\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EmployeesTableFilterBar.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 383 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(11)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.filter-bar {\n    padding: 10px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 384 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            filterText: ''
+        };
+    },
+
+    methods: {
+        doFilter: function doFilter() {
+            var _this = this;
+
+            setTimeout(function () {
+                _this.$events.fire('filter-set', _this.filterText);
+            }, 2000);
+        },
+        resetFilter: function resetFilter() {
+            this.filterText = '';
+            this.$events.fire('filter-reset');
+        }
+    }
+});
+
+/***/ }),
+/* 385 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "filter-bar" }, [
+    _c("form", { staticClass: "form-inline" }, [
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", [_vm._v("Search:")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.filterText,
+              expression: "filterText"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { type: "text", placeholder: "Name or Email" },
+          domProps: { value: _vm.filterText },
+          on: {
+            keyup: _vm.doFilter,
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.filterText = $event.target.value
+            }
+          }
+        })
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-53be9c0b", module.exports)
+  }
+}
+
+/***/ }),
+/* 386 */,
+/* 387 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { attrs: { id: "employees-table" } },
+    [
+      _c("loader", { attrs: { loading: _vm.loading } }),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-6" }, [_c("filter-bar")], 1),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-md-6" },
+          [
+            _c(
+              "el-button",
+              {
+                staticClass: "pull-right",
+                staticStyle: { "margin-top": "8px" },
+                attrs: { type: "primary" },
+                on: {
+                  click: function($event) {
+                    _vm.postFormDialog = true
+                  }
+                }
+              },
+              [_vm._v("Add Employee")]
+            )
+          ],
+          1
+        )
+      ]),
+      _vm._v(" "),
+      _c("vuetable", {
+        ref: "vuetable",
+        attrs: {
+          "api-url": _vm.apiUrl,
+          fields: _vm.fields,
+          "pagination-path": "",
+          css: _vm.css.table,
+          "sort-order": _vm.sortOrder,
+          "multi-sort": true,
+          "append-params": _vm.moreParams
+        },
+        on: {
+          "vuetable:loading": _vm.onLoading,
+          "vuetable:loaded": _vm.onLoaded,
+          "vuetable:pagination-data": _vm.onPaginationData
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "vuetable-pagination" },
+        [
+          _c("vuetable-pagination-info", {
+            ref: "paginationInfo",
+            attrs: { "info-class": "pagination-info" }
+          }),
+          _vm._v(" "),
+          _c("vuetable-pagination", {
+            ref: "pagination",
+            attrs: { css: _vm.css.pagination },
+            on: { "vuetable-pagination:change-page": _vm.onChangePage }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "el-dialog",
+        {
+          attrs: {
+            title: "New Employee",
+            visible: _vm.postFormDialog,
+            width: "40%"
+          },
+          on: {
+            "update:visible": function($event) {
+              _vm.postFormDialog = $event
+            }
+          }
+        },
+        [
+          _c(
+            "el-form",
+            { attrs: { "label-position": "top", model: _vm.employee } },
+            [
+              _c(
+                "el-form-item",
+                { attrs: { label: "Name" } },
+                [
+                  _c("el-input", {
+                    model: {
+                      value: _vm.employee.name,
+                      callback: function($$v) {
+                        _vm.$set(_vm.employee, "name", $$v)
+                      },
+                      expression: "employee.name"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.name && _vm.errors.name.length
+                    ? _c(
+                        "div",
+                        _vm._l(_vm.errors.name, function(error, index) {
+                          return _c(
+                            "span",
+                            { key: index, staticClass: "help-block" },
+                            [
+                              _vm._v(
+                                "\n                        " +
+                                  _vm._s(error) +
+                                  "\n                    "
+                              )
+                            ]
+                          )
+                        })
+                      )
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-form-item",
+                { attrs: { label: "Email" } },
+                [
+                  _c("el-input", {
+                    model: {
+                      value: _vm.employee.email,
+                      callback: function($$v) {
+                        _vm.$set(_vm.employee, "email", $$v)
+                      },
+                      expression: "employee.email"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.email && _vm.errors.email.length
+                    ? _c(
+                        "div",
+                        _vm._l(_vm.errors.email, function(error, index) {
+                          return _c(
+                            "span",
+                            { key: index, staticClass: "help-block" },
+                            [
+                              _vm._v(
+                                "\n                        " +
+                                  _vm._s(error) +
+                                  "\n                    "
+                              )
+                            ]
+                          )
+                        })
+                      )
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-form-item",
+                { attrs: { label: "Birthday" } },
+                [
+                  _c("el-date-picker", {
+                    attrs: { type: "date", placeholder: "" },
+                    model: {
+                      value: _vm.employee.birthdate,
+                      callback: function($$v) {
+                        _vm.$set(_vm.employee, "birthdate", $$v)
+                      },
+                      expression: "employee.birthdate"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.birthdate && _vm.errors.birthdate.length
+                    ? _c(
+                        "div",
+                        _vm._l(_vm.errors.birthdate, function(error, index) {
+                          return _c(
+                            "span",
+                            { key: index, staticClass: "help-block" },
+                            [
+                              _vm._v(
+                                "\n                        " +
+                                  _vm._s(error) +
+                                  "\n                    "
+                              )
+                            ]
+                          )
+                        })
+                      )
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-form-item",
+                { attrs: { label: "Blood Type" } },
+                [
+                  _c(
+                    "el-select",
+                    {
+                      attrs: { placeholder: "Select" },
+                      model: {
+                        value: _vm.employee.blood_type,
+                        callback: function($$v) {
+                          _vm.$set(_vm.employee, "blood_type", $$v)
+                        },
+                        expression: "employee.blood_type"
+                      }
+                    },
+                    _vm._l(_vm.bloodTypes, function(item) {
+                      return _c("el-option", {
+                        key: item.value,
+                        attrs: { label: item.label, value: item.value }
+                      })
+                    })
+                  ),
+                  _vm._v(" "),
+                  _vm.errors.blod_type && _vm.errors.blod_type.length
+                    ? _c(
+                        "div",
+                        _vm._l(_vm.errors.blod_type, function(error, index) {
+                          return _c(
+                            "span",
+                            { key: index, staticClass: "help-block" },
+                            [
+                              _vm._v(
+                                "\n                        " +
+                                  _vm._s(error) +
+                                  "\n                    "
+                              )
+                            ]
+                          )
+                        })
+                      )
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-form-item",
+                { attrs: { label: "Image" } },
+                [
+                  _c(
+                    "el-button",
+                    {
+                      attrs: { type: "info", size: "small" },
+                      on: { click: _vm.onFileChange }
+                    },
+                    [_vm._v("Browse")]
+                  ),
+                  _vm._v(" "),
+                  _vm.errors.image && _vm.errors.image.length
+                    ? _c(
+                        "div",
+                        _vm._l(_vm.errors.image, function(error, index) {
+                          return _c(
+                            "span",
+                            { key: index, staticClass: "help-block" },
+                            [
+                              _vm._v(
+                                "\n                        " +
+                                  _vm._s(error) +
+                                  "\n                    "
+                              )
+                            ]
+                          )
+                        })
+                      )
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-form-item",
+                { attrs: { label: "Signature", id: "signature" } },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "signature-field-container" },
+                    [
+                      _c("VueSignaturePad", {
+                        ref: "signaturePad",
+                        attrs: {
+                          width: "300px",
+                          height: "100px",
+                          options: { minWidth: 1, maxWidth: 1.5 }
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _vm.errors.signature && _vm.errors.signature.length
+                    ? _c(
+                        "div",
+                        _vm._l(_vm.errors.signature, function(error, index) {
+                          return _c(
+                            "span",
+                            { key: index, staticClass: "help-block" },
+                            [
+                              _vm._v(
+                                "\n                        " +
+                                  _vm._s(error) +
+                                  "\n                    "
+                              )
+                            ]
+                          )
+                        })
+                      )
+                    : _vm._e()
+                ]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "dialog-footer",
+              attrs: { slot: "footer" },
+              slot: "footer"
+            },
+            [
+              _c(
+                "el-button",
+                {
+                  on: {
+                    click: function($event) {
+                      _vm.postFormDialog = false
+                    }
+                  }
+                },
+                [_vm._v("Cancel")]
+              ),
+              _vm._v(" "),
+              _c(
+                "el-button",
+                { attrs: { type: "primary" }, on: { click: _vm.submit } },
+                [_vm._v("Submit")]
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-14ac0400", module.exports)
+  }
+}
+
+/***/ }),
+/* 388 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

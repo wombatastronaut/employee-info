@@ -20,7 +20,7 @@
             doFilter () {
                 setTimeout(() => {
                     this.$events.fire('filter-set', this.filterText)
-                }, 1000)
+                }, 2000)
             },
             resetFilter () {
                 this.filterText = ''
