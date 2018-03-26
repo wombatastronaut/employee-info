@@ -106797,6 +106797,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -106932,8 +106933,22 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('filter-bar', __WEBPACK_IM
             this.loading = false;
         },
         onFileChange: function onFileChange() {},
+        openPostFormDialog: function openPostFormDialog() {
+            this.postFormDialog = true;
+            this.resetFields();
+        },
+        closePostFormDialog: function closePostFormDialog() {
+            this.postFormDialog = false;
+            this.resetFields();
+        },
         submit: function submit() {
             var _this = this;
+
+            var signature = this.$refs.signaturePad.saveSignature();
+
+            if (!signature.isEmpty) {
+                this.employee.signature = signature.data;
+            }
 
             axios.post(route('api.employees.post'), this.employee).then(function (_ref) {
                 var data = _ref.data;
@@ -106963,7 +106978,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('filter-bar', __WEBPACK_IM
         resetFields: function resetFields() {
             this.employee.id = null;
             this.employee.name = null;
-            this.employee.employee = null;
+            this.employee.email = null;
             this.employee.birthdate = null;
             this.employee.blood_type = null;
             this.employee.image = null;
@@ -112003,11 +112018,7 @@ var render = function() {
                 staticClass: "pull-right",
                 staticStyle: { "margin-top": "8px" },
                 attrs: { type: "primary" },
-                on: {
-                  click: function($event) {
-                    _vm.postFormDialog = true
-                  }
-                }
+                on: { click: _vm.openPostFormDialog }
               },
               [_vm._v("Add Employee")]
             )
@@ -112063,7 +112074,8 @@ var render = function() {
           on: {
             "update:visible": function($event) {
               _vm.postFormDialog = $event
-            }
+            },
+            close: _vm.resetFields
           }
         },
         [
@@ -112313,17 +112325,9 @@ var render = function() {
               slot: "footer"
             },
             [
-              _c(
-                "el-button",
-                {
-                  on: {
-                    click: function($event) {
-                      _vm.postFormDialog = false
-                    }
-                  }
-                },
-                [_vm._v("Cancel")]
-              ),
+              _c("el-button", { on: { click: _vm.closePostFormDialog } }, [
+                _vm._v("Cancel")
+              ]),
               _vm._v(" "),
               _c(
                 "el-button",

@@ -25,14 +25,14 @@ class EmployeesController extends Controller
             'blood_type' => 'required',
         ]);
         
-        if($validator->fails()){
+        if ($validator->fails()) {
             return [
                 'success' => false,
                 'errors' => $validator->errors()
             ];
         }
 
-        if ($request->has('id')) {
+        if ($request->has('id') && !is_null($request->input('id'))) {
             $employee = Employee::find($request->input('id'));
         } else {
             $employee = new Employee;
@@ -42,6 +42,10 @@ class EmployeesController extends Controller
         $employee->email = $request->input('email');
         $employee->birthdate = $request->input('birthdate');
         $employee->blood_type = $request->input('blood_type');
+        $employee->signature = $request->input('signature');
+
+        if ($request->hasFile('image')) {
+        }
 
         $result = $employee->save();
 
@@ -93,7 +97,7 @@ class EmployeesController extends Controller
     /**
      * Delete an employee
      *
-     * @param string $id
+     * @param string|int $id
      * @return Response
      */
     public function delete($id)

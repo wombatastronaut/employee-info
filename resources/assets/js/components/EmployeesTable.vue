@@ -6,7 +6,7 @@
                 <filter-bar></filter-bar>
             </div>
             <div class="col-md-6">
-                <el-button class="pull-right" type="primary" style="margin-top: 8px;" @click="postFormDialog = true">Add Employee</el-button>
+                <el-button class="pull-right" type="primary" style="margin-top: 8px;" @click="openPostFormDialog">Add Employee</el-button>
             </div>
         </div>
         <vuetable ref="vuetable"
@@ -33,7 +33,8 @@
         <el-dialog
             title="New Employee"
             :visible.sync="postFormDialog"
-            width="40%">
+            width="40%"
+            @close="resetFields">
             <el-form label-position="top" :model="employee">
                 <el-form-item label="Name">
                     <el-input v-model="employee.name"></el-input>
@@ -103,7 +104,7 @@
                 </el-form-item>
             </el-form>
             <span slot="footer" class="dialog-footer">
-                <el-button @click="postFormDialog = false">Cancel</el-button>
+                <el-button @click="closePostFormDialog">Cancel</el-button>
                 <el-button type="primary" @click="submit">Submit</el-button>
             </span>
         </el-dialog>
@@ -257,7 +258,21 @@
             onFileChange() {
 
             },
+            openPostFormDialog() {
+                this.postFormDialog = true;
+                this.resetFields();
+            },
+            closePostFormDialog() {
+                this.postFormDialog = false;
+                this.resetFields();            
+            },
             submit() {
+                let signature = this.$refs.signaturePad.saveSignature()
+                
+                if (!signature.isEmpty) {
+                    this.employee.signature = signature.data
+                }
+
                 axios.post(route('api.employees.post'), this.employee)
                     .then(({data}) => {
                         this.loading = false
@@ -267,9 +282,9 @@
                             return false
                         }
                         
-                        this.resetFields();
-                        this.$nextTick(() => this.$refs.vuetable.refresh());
-                        this.postFormDialog = false;
+                        this.resetFields()
+                        this.$nextTick(() => this.$refs.vuetable.refresh())
+                        this.postFormDialog = false
 
                         this.$notify({
                             title: 'Success',
@@ -284,7 +299,7 @@
             resetFields() {
                 this.employee.id = null;
                 this.employee.name = null;
-                this.employee.employee = null;
+                this.employee.email = null;
                 this.employee.birthdate = null;
                 this.employee.blood_type = null;
                 this.employee.image = null;
