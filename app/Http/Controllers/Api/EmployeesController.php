@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use Validator;
+use Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use App\Http\Controllers\Controller;
 
 use App\Employee;
@@ -26,6 +28,7 @@ class EmployeesController extends Controller
             'blood_type' => 'required',
         ]);
         
+
         if ($validator->fails()) {
             return [
                 'success' => false,
@@ -33,6 +36,7 @@ class EmployeesController extends Controller
             ];
         }
 
+        // Check if for edit or new employee
         if ($request->has('id') && !is_null($request->input('id'))) {
             $employee = Employee::find($request->input('id'));
         } else {
@@ -45,12 +49,13 @@ class EmployeesController extends Controller
         $employee->blood_type = $request->input('blood_type');
         $employee->signature = $request->input('signature');
 
-        if ($request->hasFile('image')) {
-            $path = $this->storeFile($request->file('image'), config('constants.employees_image_path'));
-            $employee->image = $path;
-        }
-
         $result = $employee->save();
+
+        if($result) {
+            if ($request->has('image') && !is_null($request->input('image'))) {
+                $this->storeImage($request->input('image'), $employee->id, config('constants.employees_image_path'));
+            }
+        }
 
         return [
             'success' => $result
@@ -61,11 +66,17 @@ class EmployeesController extends Controller
      * Store file
      * 
      * @param object $image
+     * $param string $path
      * @return string
      */
-    private function storeFile($file, $path) {
-        $path = $file->store($path);
-        return $path;
+    private function storeImage($image, $id, $path) {
+        if (!file_exists($path)) {
+            File::makeDirectory($path, 0755, true);
+        }
+    
+        $result = Image::make($image)->save($path . '\\' . $id . '.jpg');
+
+        return $result->basename;
     }
 
     /**
@@ -94,7 +105,6 @@ class EmployeesController extends Controller
      */
     private function getTableOptions($request)
     {
-        $result = [];
         $sort = explode('|', $request->input('sort'));
         $sort_field = array_first($sort);
         $sort_dir = array_last($sort);

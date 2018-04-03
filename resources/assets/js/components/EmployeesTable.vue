@@ -80,7 +80,13 @@
                     </div>
                 </el-form-item>
                 <el-form-item label="Image">
-                    <el-button type="info" size="small" @click="onFileChange">Browse</el-button>
+                    <el-button class="btn-file" type="info" size="small" v-if="!employee.image">
+                        Browse <input type="file" @change="onFileChange">
+                    </el-button>
+                    <el-button type="danger" size="small" @click="removeImage" v-if="employee.image">
+                        Remove
+                    </el-button>
+                    <img :src="employee.image" alt="" v-if="employee.image">
                     <div v-if="errors.image && errors.image.length">
                         <span class="help-block" v-for="(error, index) in errors.image" :key="index">
                             {{ error }}
@@ -151,6 +157,10 @@
                         callback: '__formatDate|MMMM D, YYYY'
                     },
                     {
+                        name: 'age',
+                        sortField: 'age',
+                    },
+                    {
                         name: 'blood_type',
                         title: 'Blood Type',
                         sortField: 'blood_type',
@@ -206,6 +216,7 @@
                     image: null,
                     signature: null
                 },
+                image: null,
                 errors: [],
                 bloodTypes: [
                     {
@@ -255,8 +266,24 @@
             onLoaded(response) {
                 this.loading = false
             },
-            onFileChange() {
+            onFileChange(e) {
+                let files = e.target.files || e.dataTransfer.files
 
+                if (!files.length) return
+
+                this.createImage(_.first(files));
+            },
+            createImage(file) {
+                let reader = new FileReader()
+
+                reader.onload = (e) => {
+                    this.employee.image = e.target.result
+                };
+
+                reader.readAsDataURL(file)
+            },
+            removeImage() {
+                this.employee.image = null
             },
             openPostFormDialog() {
                 this.postFormDialog = true;
@@ -297,13 +324,13 @@
                     })
             },
             resetFields() {
-                this.employee.id = null;
-                this.employee.name = null;
-                this.employee.email = null;
-                this.employee.birthdate = null;
-                this.employee.blood_type = null;
-                this.employee.image = null;
-                this.employee.signature = null;
+                this.employee.id = null
+                this.employee.name = null
+                this.employee.email = null
+                this.employee.birthdate = null
+                this.employee.blood_type = null
+                this.employee.image = null
+                this.employee.signature = null
             }
         },
         events: {
@@ -339,7 +366,7 @@
                     axios.get(route('api.employees.delete', data.id))
                         .then(({data}) => {
                             this.loading = false;
-                            Vue.nextTick(() => vm.$refs.vuetable.refresh());
+                            this.$nextTick(() => this.$refs.vuetable.refresh());
 
                             if(!data.success){
                                this.errors = data.errors;
@@ -383,6 +410,27 @@
 
     .el-form--label-top .el-form-item__label {
         padding-bottom: 0;
+    }
+
+    .btn-file {
+        position: relative;
+        overflow: hidden;
+
+        input[type=file]{
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            font-size: 100px;
+            text-align: right;
+            filter: alpha(opacity = 0);
+            opacity: 0;
+            outline: none;
+            background: white;
+            cursor: inherit;
+            display: block;
+        }
     }
 
     .vuetable-pagination {
