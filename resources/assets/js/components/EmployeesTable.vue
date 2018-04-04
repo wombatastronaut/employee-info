@@ -17,8 +17,8 @@
             :sort-order="sortOrder"
             :multi-sort="true"
             :append-params="moreParams"
-            @vuetable:loading="onLoading"
-            @vuetable:loaded="onLoaded"
+            @vuetable:loading="loading = true"
+            @vuetable:loaded="loading = false"
             @vuetable:pagination-data="onPaginationData">
         </vuetable>
         <div class="vuetable-pagination">
@@ -83,10 +83,10 @@
                     <el-button class="btn-file" type="info" size="small" v-if="!employee.image">
                         Browse <input type="file" @change="onFileChange">
                     </el-button>
+                    <img :src="employee.image" class="image-preview" alt="Avatar" v-if="employee.image">
                     <el-button type="danger" size="small" @click="removeImage" v-if="employee.image">
                         Remove
                     </el-button>
-                    <img :src="employee.image" alt="" v-if="employee.image">
                     <div v-if="errors.image && errors.image.length">
                         <span class="help-block" v-for="(error, index) in errors.image" :key="index">
                             {{ error }}
@@ -209,8 +209,9 @@
                 ],
                 moreParams: {},
                 employee: {
+                    id: null,
                     name: null,
-                    enail: null,
+                    email: null,
                     birthdate: null,
                     blood_type: null,
                     image: null,
@@ -260,18 +261,12 @@
             onChangePage(page) {
                 this.$refs.vuetable.changePage(page);
             },
-            onLoading(response) {
-                this.loading = true
-            },
-            onLoaded(response) {
-                this.loading = false
-            },
             onFileChange(e) {
                 let files = e.target.files || e.dataTransfer.files
 
                 if (!files.length) return
 
-                this.createImage(_.first(files));
+                this.createImage(_.first(files))
             },
             createImage(file) {
                 let reader = new FileReader()
@@ -286,12 +281,12 @@
                 this.employee.image = null
             },
             openPostFormDialog() {
-                this.postFormDialog = true;
-                this.resetFields();
+                this.postFormDialog = true
+                this.resetFields()
             },
             closePostFormDialog() {
-                this.postFormDialog = false;
-                this.resetFields();            
+                this.postFormDialog = false
+                this.resetFields()          
             },
             submit() {
                 let signature = this.$refs.signaturePad.saveSignature()
@@ -324,13 +319,9 @@
                     })
             },
             resetFields() {
-                this.employee.id = null
-                this.employee.name = null
-                this.employee.email = null
-                this.employee.birthdate = null
-                this.employee.blood_type = null
-                this.employee.image = null
-                this.employee.signature = null
+                _.each(this.employee, (value, key) => {
+                    this.employee[key] = null
+                })
             }
         },
         events: {
@@ -338,6 +329,7 @@
                 this.moreParams = {
                     filter: filterText
                 }
+
                 this.$nextTick(() => this.$refs.vuetable.refresh())
             },
             'filter-reset' () {
@@ -347,15 +339,11 @@
             'edit-item' (data, index) {
                 this.postFormDialog = true
 
-                this.employee.id = data.id
-                this.employee.name = data.name
-                this.employee.email = data.email
-                this.employee.birthdate = data.birthdate
-                this.employee.blood_type = data.blood_type
+                _.each(this.employee, (value, key) => {
+                    this.employee[key] = data[key]
+                })
             },
             'delete-item' (data, index) {
-                let vm = this;
-
                 this.$confirm('Are you sure you want to delete this item?', 'Warning', {
                     confirmButtonText: 'Yes',
                     cancelButtonText: 'Cancel',
@@ -368,7 +356,7 @@
                             this.loading = false;
                             this.$nextTick(() => this.$refs.vuetable.refresh());
 
-                            if(!data.success){
+                            if (!data.success) {
                                this.errors = data.errors;
                                 return false;
                             }
@@ -381,7 +369,10 @@
                         })
                 }).catch(() => {
                 });
-            }
+            },
+            'download-details' (data, index) {
+                window.location.href = route('api.employees.details', data.id) 
+            },
         }
     }
 </script>
@@ -401,6 +392,13 @@
 
         .el-form-item__content {
             line-height: normal;
+        }
+
+        .el-form-item__content > img {
+            display: block;
+            width: 200px;
+            height: auto;
+            margin-bottom: 10px;
         }
 
         .el-form-item__label {

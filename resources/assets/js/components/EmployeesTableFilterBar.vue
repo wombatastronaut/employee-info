@@ -1,11 +1,14 @@
 <template>
     <div class="filter-bar">
-        <form class="form-inline">
-            <div class="form-group">
-                <label>Search:</label>
-                <input type="text" v-model="filterText" class="form-control" @keyup="doFilter" placeholder="Name or Email">
-            </div>
-        </form>
+        <el-form :inline="true">
+            <el-form-item>
+                <el-input placeholder="Name or Email" v-model="filterText" @keyup.enter="doFilter"></el-input>
+            </el-form-item>
+            <el-form-item>
+                <el-button type="primary" @click.prevent="doFilter">Search</el-button>
+                <el-button @click.prevent="resetFilter">Reset</el-button>
+            </el-form-item>
+        </el-form>
     </div>
 </template>
 
@@ -18,9 +21,7 @@
         },
         methods: {
             doFilter () {
-                setTimeout(() => {
-                    this.$events.fire('filter-set', this.filterText)
-                }, 2000)
+                this.$events.fire('filter-set', this.filterText)
             },
             resetFilter () {
                 this.filterText = ''

@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers\Api;
 
-use Validator;
-use Image;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\File;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use App\Employee;
+use Validator;
+use Image;
+use PDF;
+
 
 class EmployeesController extends Controller
 {
@@ -23,7 +25,7 @@ class EmployeesController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'email' => 'required|unique:employees',
+            'email' => 'required|email|unique:employees,email,' . $request->input('id'),
             'birthdate' => 'required',
             'blood_type' => 'required',
         ]);
@@ -47,14 +49,19 @@ class EmployeesController extends Controller
         $employee->email = $request->input('email');
         $employee->birthdate = $request->input('birthdate');
         $employee->blood_type = $request->input('blood_type');
-        $employee->signature = $request->input('signature');
 
         $result = $employee->save();
 
         if($result) {
             if ($request->has('image') && !is_null($request->input('image'))) {
-                $this->storeImage($request->input('image'), $employee->id, config('constants.employees_image_path'));
+                $employee->image = $this->storeImage($request->input('image'), 'jpg', $employee->id, config('constants.employees_image_path'));
             }
+
+            if ($request->has('signature') && !is_null($request->input('signature'))) {
+                $employee->signature = $this->storeImage($request->input('signature'), 'png', $employee->id, config('constants.employees_signature_path'));
+            }
+
+            $employee->save();
         }
 
         return [
@@ -69,12 +76,12 @@ class EmployeesController extends Controller
      * $param string $path
      * @return string
      */
-    private function storeImage($image, $id, $path) {
+    private function storeImage($image, $format, $id, $path) {
         if (!file_exists($path)) {
             File::makeDirectory($path, 0755, true);
         }
     
-        $result = Image::make($image)->save($path . '\\' . $id . '.jpg');
+        $result = Image::make($image)->save($path . '\\' . $id . '.' . $format);
 
         return $result->basename;
     }
@@ -116,6 +123,14 @@ class EmployeesController extends Controller
             'sort_dir' => $sort_dir,
             'per_page' => $per_page
         ];
+    }
+
+    public function details(Employee $employee)
+    {
+        view()->share('employee', $employee);
+        return view('details', ['employee' => $employee]);
+        // $pdf = PDF::loadView('htmltopdfview');
+        // return $pdf->download();
     }
 
     /**

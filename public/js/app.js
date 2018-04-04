@@ -106267,7 +106267,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\n.signature-field-container div {\n  border: 1px solid #dcdfe6;\n}\n.el-dialog__body {\n  padding-top: 15px;\n  padding-bottom: 15px;\n}\n.el-form-item {\n  margin-bottom: 10px;\n}\n.el-form-item .el-form-item__content {\n    line-height: normal;\n}\n.el-form-item .el-form-item__label {\n    margin-bottom: 0;\n}\n.el-form--label-top .el-form-item__label {\n  padding-bottom: 0;\n}\n.btn-file {\n  position: relative;\n  overflow: hidden;\n}\n.btn-file input[type=file] {\n    position: absolute;\n    top: 0;\n    right: 0;\n    min-width: 100%;\n    min-height: 100%;\n    font-size: 100px;\n    text-align: right;\n    filter: alpha(opacity=0);\n    opacity: 0;\n    outline: none;\n    background: white;\n    cursor: inherit;\n    display: block;\n}\n.vuetable-pagination .pagination-info {\n  float: left;\n}\n.vuetable-pagination .vuetable-pagination-info {\n  display: inline-block;\n}\n", ""]);
+exports.push([module.i, "\n.signature-field-container div {\n  border: 1px solid #dcdfe6;\n}\n.el-dialog__body {\n  padding-top: 15px;\n  padding-bottom: 15px;\n}\n.el-form-item {\n  margin-bottom: 10px;\n}\n.el-form-item .el-form-item__content {\n    line-height: normal;\n}\n.el-form-item .el-form-item__content > img {\n    display: block;\n    width: 200px;\n    height: auto;\n    margin-bottom: 10px;\n}\n.el-form-item .el-form-item__label {\n    margin-bottom: 0;\n}\n.el-form--label-top .el-form-item__label {\n  padding-bottom: 0;\n}\n.btn-file {\n  position: relative;\n  overflow: hidden;\n}\n.btn-file input[type=file] {\n    position: absolute;\n    top: 0;\n    right: 0;\n    min-width: 100%;\n    min-height: 100%;\n    font-size: 100px;\n    text-align: right;\n    filter: alpha(opacity=0);\n    opacity: 0;\n    outline: none;\n    background: white;\n    cursor: inherit;\n    display: block;\n}\n.vuetable-pagination .pagination-info {\n  float: left;\n}\n.vuetable-pagination .vuetable-pagination-info {\n  display: inline-block;\n}\n", ""]);
 
 // exports
 
@@ -106530,8 +106530,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('filter-bar', __WEBPACK_IM
             }],
             moreParams: {},
             employee: {
+                id: null,
                 name: null,
-                enail: null,
+                email: null,
                 birthdate: null,
                 blood_type: null,
                 image: null,
@@ -106578,12 +106579,6 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('filter-bar', __WEBPACK_IM
         },
         onChangePage: function onChangePage(page) {
             this.$refs.vuetable.changePage(page);
-        },
-        onLoading: function onLoading(response) {
-            this.loading = true;
-        },
-        onLoaded: function onLoaded(response) {
-            this.loading = false;
         },
         onFileChange: function onFileChange(e) {
             var files = e.target.files || e.dataTransfer.files;
@@ -106649,75 +106644,75 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('filter-bar', __WEBPACK_IM
             });
         },
         resetFields: function resetFields() {
-            this.employee.id = null;
-            this.employee.name = null;
-            this.employee.email = null;
-            this.employee.birthdate = null;
-            this.employee.blood_type = null;
-            this.employee.image = null;
-            this.employee.signature = null;
+            var _this3 = this;
+
+            _.each(this.employee, function (value, key) {
+                _this3.employee[key] = null;
+            });
         }
     },
     events: {
         'filter-set': function filterSet(filterText) {
-            var _this3 = this;
+            var _this4 = this;
 
             this.moreParams = {
                 filter: filterText
             };
-            this.$nextTick(function () {
-                return _this3.$refs.vuetable.refresh();
-            });
-        },
-        'filter-reset': function filterReset() {
-            var _this4 = this;
 
-            this.moreParams = {};
             this.$nextTick(function () {
                 return _this4.$refs.vuetable.refresh();
             });
         },
-        'edit-item': function editItem(data, index) {
-            this.postFormDialog = true;
-
-            this.employee.id = data.id;
-            this.employee.name = data.name;
-            this.employee.email = data.email;
-            this.employee.birthdate = data.birthdate;
-            this.employee.blood_type = data.blood_type;
-        },
-        'delete-item': function deleteItem(data, index) {
+        'filter-reset': function filterReset() {
             var _this5 = this;
 
-            var vm = this;
+            this.moreParams = {};
+            this.$nextTick(function () {
+                return _this5.$refs.vuetable.refresh();
+            });
+        },
+        'edit-item': function editItem(data, index) {
+            var _this6 = this;
+
+            this.postFormDialog = true;
+
+            _.each(this.employee, function (value, key) {
+                _this6.employee[key] = data[key];
+            });
+        },
+        'delete-item': function deleteItem(data, index) {
+            var _this7 = this;
 
             this.$confirm('Are you sure you want to delete this item?', 'Warning', {
                 confirmButtonText: 'Yes',
                 cancelButtonText: 'Cancel',
                 type: 'warning'
             }).then(function () {
-                _this5.loading = true;
+                _this7.loading = true;
 
                 axios.get(route('api.employees.delete', data.id)).then(function (_ref2) {
                     var data = _ref2.data;
 
-                    _this5.loading = false;
-                    _this5.$nextTick(function () {
-                        return _this5.$refs.vuetable.refresh();
+                    _this7.loading = false;
+                    _this7.$nextTick(function () {
+                        return _this7.$refs.vuetable.refresh();
                     });
 
                     if (!data.success) {
-                        _this5.errors = data.errors;
+                        _this7.errors = data.errors;
                         return false;
                     }
 
-                    _this5.$notify({
+                    _this7.$notify({
                         title: 'Success',
                         message: 'You have successfully deleted the employee.',
                         type: 'success'
                     });
                 });
             }).catch(function () {});
+        },
+        'download-details': function downloadDetails(data, index) {
+            window.location.href = route('api.employees.details', data.id);
         }
     }
 });
@@ -111383,6 +111378,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
@@ -111414,58 +111414,91 @@ var render = function() {
     { staticClass: "custom-actions" },
     [
       _c(
-        "el-tooltip",
-        {
-          staticClass: "item",
-          attrs: { effect: "dark", content: "View", placement: "bottom" }
-        },
+        "el-button-group",
         [
-          _c("el-button", {
-            attrs: { size: "mini", icon: "el-icon-zoom-in" },
-            on: {
-              click: function($event) {
-                _vm.itemAction("view-item", _vm.rowData, _vm.rowIndex)
+          _c(
+            "el-tooltip",
+            {
+              staticClass: "item",
+              attrs: { effect: "dark", content: "View", placement: "bottom" }
+            },
+            [
+              _c("el-button", {
+                attrs: { size: "mini", icon: "el-icon-zoom-in" },
+                on: {
+                  click: function($event) {
+                    _vm.itemAction("view-item", _vm.rowData, _vm.rowIndex)
+                  }
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-tooltip",
+            {
+              staticClass: "item",
+              attrs: { effect: "dark", content: "Edit", placement: "bottom" }
+            },
+            [
+              _c("el-button", {
+                attrs: { size: "mini", icon: "el-icon-edit" },
+                on: {
+                  click: function($event) {
+                    _vm.itemAction("edit-item", _vm.rowData, _vm.rowIndex)
+                  }
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-tooltip",
+            {
+              staticClass: "item",
+              attrs: {
+                effect: "dark",
+                content: "Download",
+                placement: "bottom"
               }
-            }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "el-tooltip",
-        {
-          staticClass: "item",
-          attrs: { effect: "dark", content: "Edit", placement: "bottom" }
-        },
-        [
-          _c("el-button", {
-            attrs: { size: "mini", icon: "el-icon-edit" },
-            on: {
-              click: function($event) {
-                _vm.itemAction("edit-item", _vm.rowData, _vm.rowIndex)
-              }
-            }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "el-tooltip",
-        {
-          staticClass: "item",
-          attrs: { effect: "dark", content: "Delete", placement: "bottom" }
-        },
-        [
-          _c("el-button", {
-            attrs: { size: "mini", icon: "el-icon-delete" },
-            on: {
-              click: function($event) {
-                _vm.itemAction("delete-item", _vm.rowData, _vm.rowIndex)
-              }
-            }
-          })
+            },
+            [
+              _c("el-button", {
+                attrs: { size: "mini", icon: "el-icon-download" },
+                on: {
+                  click: function($event) {
+                    _vm.itemAction(
+                      "download-details",
+                      _vm.rowData,
+                      _vm.rowIndex
+                    )
+                  }
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-tooltip",
+            {
+              staticClass: "item",
+              attrs: { effect: "dark", content: "Delete", placement: "bottom" }
+            },
+            [
+              _c("el-button", {
+                attrs: { size: "mini", icon: "el-icon-delete" },
+                on: {
+                  click: function($event) {
+                    _vm.itemAction("delete-item", _vm.rowData, _vm.rowIndex)
+                  }
+                }
+              })
+            ],
+            1
+          )
         ],
         1
       )
@@ -111591,6 +111624,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -111601,11 +111637,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         doFilter: function doFilter() {
-            var _this = this;
-
-            setTimeout(function () {
-                _this.$events.fire('filter-set', _this.filterText);
-            }, 2000);
+            this.$events.fire('filter-set', this.filterText);
         },
         resetFilter: function resetFilter() {
             this.filterText = '';
@@ -111622,36 +111654,80 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "filter-bar" }, [
-    _c("form", { staticClass: "form-inline" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", [_vm._v("Search:")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.filterText,
-              expression: "filterText"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: { type: "text", placeholder: "Name or Email" },
-          domProps: { value: _vm.filterText },
-          on: {
-            keyup: _vm.doFilter,
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.filterText = $event.target.value
-            }
-          }
-        })
-      ])
-    ])
-  ])
+  return _c(
+    "div",
+    { staticClass: "filter-bar" },
+    [
+      _c(
+        "el-form",
+        { attrs: { inline: true } },
+        [
+          _c(
+            "el-form-item",
+            [
+              _c("el-input", {
+                attrs: { placeholder: "Name or Email" },
+                on: {
+                  keyup: function($event) {
+                    if (
+                      !("button" in $event) &&
+                      _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                    ) {
+                      return null
+                    }
+                    return _vm.doFilter($event)
+                  }
+                },
+                model: {
+                  value: _vm.filterText,
+                  callback: function($$v) {
+                    _vm.filterText = $$v
+                  },
+                  expression: "filterText"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "el-form-item",
+            [
+              _c(
+                "el-button",
+                {
+                  attrs: { type: "primary" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.doFilter($event)
+                    }
+                  }
+                },
+                [_vm._v("Search")]
+              ),
+              _vm._v(" "),
+              _c(
+                "el-button",
+                {
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.resetFilter($event)
+                    }
+                  }
+                },
+                [_vm._v("Reset")]
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -111711,8 +111787,12 @@ var render = function() {
           "append-params": _vm.moreParams
         },
         on: {
-          "vuetable:loading": _vm.onLoading,
-          "vuetable:loaded": _vm.onLoaded,
+          "vuetable:loading": function($event) {
+            _vm.loading = true
+          },
+          "vuetable:loaded": function($event) {
+            _vm.loading = false
+          },
           "vuetable:pagination-data": _vm.onPaginationData
         }
       }),
@@ -111932,6 +112012,13 @@ var render = function() {
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.employee.image
+                    ? _c("img", {
+                        staticClass: "image-preview",
+                        attrs: { src: _vm.employee.image, alt: "Avatar" }
+                      })
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.employee.image
                     ? _c(
                         "el-button",
                         {
@@ -111944,10 +112031,6 @@ var render = function() {
                           )
                         ]
                       )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.employee.image
-                    ? _c("img", { attrs: { src: _vm.employee.image, alt: "" } })
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.errors.image && _vm.errors.image.length
